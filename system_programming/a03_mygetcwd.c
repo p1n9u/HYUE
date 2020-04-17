@@ -1,4 +1,4 @@
-/ *
+/*
   * 2018045341 Kimdowon
   * ICT media Tech / SW computer
   * 2020.04.18
