@@ -1,3 +1,9 @@
+/ *
+  * 2018045341 Kimdowon
+  * ICT media Tech / SW computer
+  * 2020.04.18
+*/
+
 /*
  * getcwd()와 동일한 동작을 실행하는 함수를 구현하라. 
  * getcwd()의 성공/실패 여부와 상관 없이, 탐색을 시작한 것과 동일한 디렉토리에 존재해야 함
@@ -40,9 +46,9 @@ char *mygetcwd(char *buf, size_t size) {
     int chk = 1;
 
     for (;;) {
-		if ( chk == 0 ) {
-	    	break;
-		}
+        if ( chk == 0 ) {
+	    break;
+	}
         c_dirp = opendir(".");
         p_dirp = opendir("..");
         
@@ -53,24 +59,25 @@ char *mygetcwd(char *buf, size_t size) {
         }
 
         while ( (dp = readdir(p_dirp)) != NULL ) {
-	    	if ( strcmp(dp->d_name, ".") == 0 || strcmp(dp->d_name, "..") == 0 ) {
-				continue;
-	    	}
-        	if ( (dp->d_ino) == ino_num ) {
+	    if ( strcmp(dp->d_name, ".") == 0 || strcmp(dp->d_name, "..") == 0 ) {
+	        continue;
+	    }
+            if ( (dp->d_ino) == ino_num ) {
                 strncpy(back, dirname, size);
                 strncpy(dirname, "/", size);
                 strcat(dirname, dp->d_name);
                 strcat(dirname, back);
-				chk = 1;
-				break;
+		chk = 1;
+		break;
             } else {
-				chk = 0;
-	    	}
+		chk = 0;
+	    }
         }
         closedir(c_dirp);
         closedir(p_dirp);
         chdir("..");
-    } 
+    }
+
     buf = dirname;
     strcat(buf, "\0");
     return buf;
