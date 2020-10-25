@@ -12,4 +12,3 @@ Verilog HDL a guide to digital design and synthesis
 + Verilog HDL - UART
 + Verilog HDL - RISC-V
 + Study the architecture of AI-accelerator by utilizing ARM and RISC-V
-==============================================
