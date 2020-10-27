@@ -20,5 +20,5 @@ module ripple_carry_counter_stimulus;
     end
 	
     initial 
-    $monitor($time, " Output q = %d", q); 
+        $monitor($time, " Output q = %d", q); 
 endmodule
