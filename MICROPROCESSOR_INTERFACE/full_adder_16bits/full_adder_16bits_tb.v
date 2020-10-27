@@ -32,5 +32,4 @@ module full_adder_16bit_stimulus;
  * Refer to testbench(https://www.edaplayground.com/x/39kK) checking and matching for wave forms and I added $monitor statement.
  * The [ full_adder_16bit.v ] src_code is different and I wrote it myself.
  */ 
-
-endmodule;
+endmodule
