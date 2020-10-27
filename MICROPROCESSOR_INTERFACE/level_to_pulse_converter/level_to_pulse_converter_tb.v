@@ -1,23 +1,21 @@
 // based on mealy fsm
-
 module LevelToPulse_stimulus;
+    reg clk; 
+    reg level; 
+    reg reset; 
+    wire pulse; 
 
-reg clk; 
-reg level; 
-reg reset; 
-wire pulse; 
+    LevelToPulse ltp_fsm(level, clk, reset, pulse); 
 
-LevelToPulse ltp_fsm(level, clk, reset, pulse); 
-
-initial 
-begin 
-	$display("\t\t  Time  Level  Pulse\n"); 
+    initial 
+    begin 
+        $display("\t\t  Time  Level  Pulse\n"); 
 	$monitor("%d      %d      %d", $time, level, pulse); 
-end 
+    end 
 
-initial 
-begin 
-	clk = 1'b0; 
+    initial
+    begin 
+        clk = 1'b0; 
   	level = 1'b0; 
   	reset = 1'b0;
 
@@ -28,10 +26,8 @@ begin
 	#160 level = 1; #40 level = 0;
 	#40 level = 1;
   	#200 $finish; 
-end
+    end
 
-always 
-begin 
- 	#20 clk = ~clk; 
-end 
+    always
+        #20 clk = ~clk;
 endmodule 
