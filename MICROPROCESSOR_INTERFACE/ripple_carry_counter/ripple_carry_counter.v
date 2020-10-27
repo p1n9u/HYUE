@@ -1,20 +1,28 @@
-module ripple_carry_adder(in0, in1, out, cout);
-    input [3:0] in0;
-    input [3:0] in1;
-    output [3:0] out;
-    output cout;
-    wire c1, c2, c3;
-	
-    full_adder fa0(in0[0], in1[0], 0, out[0], c1);
-    full_adder fa1(in0[1], in1[1], c1, out[1], c2);
-    full_adder fa2(in0[2], in1[2], c2, out[2], c3);
-    full_adder fa3(in0[3], in1[3], c3, out[3], cout);
-endmodule
+module ripple_carry_counter(q, clk, reset); 
+    output [3:0] q; 
+    input clk, reset; 
+ 
+    T_FF tff0(q[0],clk, reset); 
+    T_FF tff1(q[1],q[0], reset); 
+    T_FF tff2(q[2],q[1], reset); 
+    T_FF tff3(q[3],q[2], reset); 
+endmodule 
 
-module full_adder(in0, in1, cin, out, cout);
-    input in0, in1, cin;
-    output out, cout;
+module T_FF(q, clk, reset); 
+    output q; 
+    input clk, reset; 
+    wire d; 
 
-    assign out = in0 ^ in1 ^ cin;
-    assign cout = ((in0 ^ in1) & cin) | (in0 & in1);
-endmodule
+    D_FF dff0(q, d, clk, reset); 
+    not n1(d, q); 
+endmodule 
+ 
+module D_FF(q, d, clk, reset); 
+    output q; 
+    input d, clk, reset; 
+    reg q; 
+
+    always @(posedge reset or negedge clk) 
+        if (reset) q <= 1'b0; 
+        else q <= d; 
+endmodule 
