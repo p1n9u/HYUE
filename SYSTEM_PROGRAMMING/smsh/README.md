@@ -1,5 +1,5 @@
-ICT융합학부 Media Tech
-2018045341 김도원
+ICT Media Tech SW Computer Major
+2018045341 dwk
 
 구현
 ==============================================
