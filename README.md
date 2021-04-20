@@ -6,7 +6,7 @@
   * Major
     1. ICT
       - Media Technology
-        [ Data Analytics / IoT Service ]
+        [ IoT Service / Smart Healthcare ]
     2. SW
       - Computer Science
         [ System SW ]
