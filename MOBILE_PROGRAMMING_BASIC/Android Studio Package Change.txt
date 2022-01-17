@@ -1,0 +1,11 @@
+file-new-import project
+
+*project mode
+setting gradle - sync now
+app-src-main-res-value-string.xml-rename
+app-open module setting-flavor-app id
+
+*android mode
+app-java-refractor-rename (package)
+build-rebuild project
+
